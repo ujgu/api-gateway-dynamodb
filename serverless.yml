@@ -73,7 +73,7 @@ functions:
         Resource: !GetAtt PostsTable.Arn
   getAllPosts:
     handler: api.getAllPosts
-    name: get-all-post
+    name: get-all-posts
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
@@ -86,7 +86,7 @@ functions:
           - "dynamodb:Scan"
         Resource: !GetAtt PostsTable.Arn
 
-recources:
+resources:
   Resources:
     PostsTable:
       Type: AWS::DynamoDB::Table
@@ -99,5 +99,5 @@ recources:
           - AttributeName: postId
             KeyType: HASH
         ProvisionedThroughput:
-          ReadCapacityUnites: 1
+          ReadCapacityUnits: 1
           WriteCapacityUnits: 1
